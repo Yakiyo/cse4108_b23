@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+lab="$1"
+task="$2"
+
+if [ -z "$1" ]; then
+    echo "Missing lab number argument"
+    exit
+fi
+
+if [ -z "$2" ]; then
+    echo "Missing task number argument"
+    exit
+fi
+
+mkdir -p builds
+
+gcc -o "builds/l$lab_t$task.exe" "lab_$lab/task_$task.c"
+
+bash -c "./builds/l$lab_t$task"
